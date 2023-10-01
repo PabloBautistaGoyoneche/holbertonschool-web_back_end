@@ -1,20 +1,14 @@
 #!/usr/bin/env python3
-"""
-coroutine will collect 10 random numbers using
-an async comprehension over async_generator, then return the
-10 random numbers.
-"""
-
+"""Async Comprehension"""
+import asyncio
 from typing import List
-import random
+
+async_generator = __import__('0-async_generator').async_generator
 
 
-async def async_generator() -> List[float]:
-    """Async Generator that yields random floats"""
-    for _ in range(10):
-        yield random.uniform(0, 1)
+async def async_comprehension() -> List[float]:
+    """Collect 10 random numbers using async comprehension"""
+    return [random_number async for random_number in async_generator()]
 
-
-    async def async_comprehension() -> List[float]:
-        """Async Comprehensions"""
-        return [num async for num in async_generator()]
+    if __name__ == "__main__":
+        asyncio.run(async_comprehension())
