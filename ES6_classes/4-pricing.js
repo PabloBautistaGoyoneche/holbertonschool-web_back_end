@@ -1,39 +1,39 @@
-// Import the Currency class from 3-currency.js
-import { Currency } from './3-currency';
-
-class Pricing {
-  // Constructor that initializes amount and currency attributes
+// Define a Pricing class that represents a price with an amount and currency.
+export default class Pricing {
+  // Constructor to initialize the 'amount' and 'currency' properties.
   constructor(amount, currency) {
     this._amount = amount;
     this._currency = currency;
   }
 
-  // Getter for the amount attribute
+  // Getter method for 'amount'.
   get amount() {
     return this._amount;
   }
 
-  // Setter for the amount attribute
+  // Setter method for 'amount'.
   set amount(newAmount) {
     this._amount = newAmount;
   }
 
-  // Getter for the currency attribute
+  // Getter for currency
   get currency() {
     return this._currency;
   }
 
-  // Setter for the currency attribute
+  // Settter for currency
   set currency(newCurrency) {
     this._currency = newCurrency;
   }
 
-  // Method to display the full price in the specified format
+  // The 'displayFullPrice' function returns a formatted string representing the price.
+  // It combines the amount, currency name, and currency code for display.
   displayFullPrice() {
     return `${this._amount} ${this._currency.name} (${this._currency.code})`;
   }
 
-  // Static method to convert a price using a conversion rate
+  // A static method 'convertPrice' calculates the converted price by multiplying 'amount'
+  // with 'conversionRate'.
   static convertPrice(amount, conversionRate) {
     return amount * conversionRate;
   }
